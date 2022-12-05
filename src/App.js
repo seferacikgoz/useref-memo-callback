@@ -18,12 +18,16 @@ function App() {
       })
   }, [])
 
+  const filteredData = data?.filter(item=> item.name.toLowerCase().includes(search.toLowerCase()))
 
+  const handleSearch = ()=>{
+    setSearch(text)
+  }
 
   return (
     <div className="container mt-2">
       <div>
-        <Header />
+        <Header count={count<5 ? 0 : count} />
         <hr />
         <HeaderMemo count={count<5 ? 0 : count} />
       </div>
@@ -34,11 +38,11 @@ function App() {
       </div>
       <hr />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <input type='text' />
-        <button type='button'>Search</button>
+        <input type='text' value={text} onChange={({target}) => setText(target.value)} />
+        <button type='button' onClick={handleSearch}>Search</button>
       </div>
       <div className="row">
-        <Card data={data} />
+        <Card data={filteredData} />
       </div>
     </div>
   );
