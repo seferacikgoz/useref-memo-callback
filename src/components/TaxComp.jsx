@@ -1,9 +1,11 @@
 import React from 'react'
+import { memo } from 'react';
 
-const TaxComp = () => {
+const TaxComp = ({taxData}) => {
+    console.log("Render => TaxComp components");
     return (
-        <div>TaxComp</div>
+        <div>TaxComp : {JSON.stringify(taxData.current)}</div>
     )
 }
 
-export default TaxComp
+export default memo(TaxComp)
