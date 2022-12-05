@@ -25,7 +25,7 @@ function App() {
       <div>
         <Header />
         <hr />
-        <HeaderMemo />
+        <HeaderMemo count={count<5 ? 0 : count} />
       </div>
       <hr />
       <div>
